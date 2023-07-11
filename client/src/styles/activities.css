@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root{
+    --font: 'Poppins', sans-serif;
+    --light: #6760FA;
+    --lightDark: #504BDE;
+    --lightenDark: #323C50;
+    --dark: #283042;
+    --darkDark: #1D2331;
+}
+
+.activities{
+    font-family: var(--font);
+    width: 100%;
+    position: sticky;
+    padding: 0 40px;
+}
+
+
+
+.activities .activity-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.activities .activity-header h2{
+    color: white;
+    font-size: 30px;
+}
+.activities .activity-header .viewBtn{
+    background-color: var(--light);
+    border-radius: 0.25rem;
+    padding: 5px 10px;
+    font-size: 10px;
+    color: rgb(214, 214, 214);
+}
+
+
+
+.activities .activitiesList{
+    margin-top: 20px;
+    overflow: auto;
+}
+.activities .activitiesList .activity{
+    display: flex;
+    margin-bottom: 10px;
+    align-items: center;
+}
+.activities .activitiesList .activity .activityImage{
+    color: rgb(214, 214, 214);
+    background-color: var(--lightenDark);
+    padding: 15px;
+    border-radius: 0.25rem;
+}
+.activities .activitiesList .activity .info{
+    
+}
+.activities .activitiesList .activity .info h5:nth-child(1){
+    color: white;
+    font-size: 15px;
+}
+.activities .activitiesList .activity .info h5{
+    color: rgb(214, 214, 214);
+    font-size: 12px;
+}
+

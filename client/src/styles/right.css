@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root{
+    --font: 'Poppins', sans-serif;
+    --light: #6760FA;
+    --lightDark: #504BDE;
+    --lightenDark: #323C50;
+    --dark: #283042;
+    --darkDark: #1D2331;
+}
+
+.right{
+    width: 100%;
+    height: 100%;
+    position: sticky;
+    background-color: var(--dark);
+    font-family: var(--font);
+    overflow: auto;
+}
+
+.right::-webkit-scrollbar{
+    width: 0.5rem;
+}
+
+.right::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    background-color: var(--lightDark);
+    background-color: var(--lightenDark);
+}
+
+.right::-webkit-scrollbar-thumb {
+    background-color: var(--lightenDark);
+    outline: 1px solid var(--lightenDark);
+    background-color: var(--lightDark);
+}
+
+.right::-webkit-scrollbar-corner{
+    border-radius: 30px;
+}
