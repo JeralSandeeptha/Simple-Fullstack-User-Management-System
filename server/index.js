@@ -20,7 +20,7 @@ app.use(bodyParser.json());          //this helps to turn json objects of our da
 const port = process.env.port || 7000;
 
 //connecting database
-mongoose.connect('mongodb+srv://jeral:0529@cluster0.u7knozg.mongodb.net/?retryWrites=true&w=majority')
+mongoose.connect(process.env.MONGO_URL)
     .then( () => {
         console.log('Database connection succesfully');
     })

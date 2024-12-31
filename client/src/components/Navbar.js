@@ -4,12 +4,15 @@ import user from '../images/usericon.PNG';
 import SearchIcon from '@mui/icons-material/Search';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import '../styles/Navbar.css';
+import { Link } from 'react-router-dom';
 
 function Navbar() {
 
   return (
     <div className='navbar'>
-        <img src={logo} alt="logo" className='logo'/>
+        <Link to='/support'>
+            <img src={logo} alt="logo" className='logo'/>
+        </Link>
         <div className='searchDiv'>
             <div className='inner-search'>
                 <SearchIcon className='searchIcon' fontSize='medium'/>
