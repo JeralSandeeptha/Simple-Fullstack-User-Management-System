@@ -7,6 +7,8 @@ function UpdateUserBody() {
 
     const [contact, setContact] = useState('');
 
+    const BASE_URL = process.env.REACT_APP_API_URL;
+
     const navigate= useNavigate();
 
     const { id } = useParams();
@@ -33,7 +35,7 @@ function UpdateUserBody() {
     const handleSubmit = (e) => {
         e.preventDefault();
         const contact = { name, subscription, image };
-        axios.patch(`http://localhost:8000/api/contacts/${id}`, contact)
+        axios.patch(`${BASE_URL}/contacts/${id}`, contact)
             .then(
                 alert('User Updated'),
                 navigate('/')
@@ -44,7 +46,7 @@ function UpdateUserBody() {
     }
 
     useEffect( () => {
-        axios.get(`http://localhost:8000/api/contacts/${id}`)
+        axios.get(`${BASE_URL}/contacts/${id}`)
           .then( (res) => {
             setName(res.data.name);
             setSubscription(res.data.subscription);

@@ -7,18 +7,20 @@ function Titles() {
 
   const [contacts, setContacts] = useState([]);
 
+  const BASE_URL = process.env.REACT_APP_API_URL;
+
   useEffect( () => {
-      axios.get('http://localhost:8000/api/contacts')
+      axios.get(`${BASE_URL}/contacts`)
         .then( (res) => {
           setContacts(res.data);
         })
         .catch( (error) => {
           console.log(error.message);
         });
-  });
+  }, []);
 
   const handleDelete = (id) => {
-    axios.delete(`http://localhost:8000/api/contacts/${id}`)
+    axios.delete(`${BASE_URL}/contacts/${id}`)
       .then(
         alert('User deleted')
       )

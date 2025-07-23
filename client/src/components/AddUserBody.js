@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-expressions */
 import React, { useState } from 'react';
 import '../styles/addnewuserbody.css';
 import axios from 'axios';
@@ -10,6 +11,8 @@ function AddUserBody() {
     const [name, setName] = useState('');
     const [subscription, setSubscription] = useState('');
     const [image, setImage] = useState('');
+
+    const BASE_URL = process.env.REACT_APP_API_URL;
 
     const handleName = (e) => {
         console.log(e.target.value);
@@ -33,13 +36,14 @@ function AddUserBody() {
         //insert data
         const contact = { name, subscription, image };
 
-        axios.post('http://localhost:8000/api/contacts', contact)
-            .then(
+        axios.post(`${BASE_URL}/contacts`, contact)
+            .then((res) => {
+                console.log(res.data);
                 alert('Contact Added'),
                 setImage(''),
                 setName(''),
                 setSubscription('')
-            )
+            })
             .catch( (error) => {
                 console.log(error.message);
             });

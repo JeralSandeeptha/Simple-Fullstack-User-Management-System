@@ -17,7 +17,7 @@ app.use(cors());                     //this helps to connect forntend and backen
 app.use(bodyParser.json());          //this helps to turn json objects of our data 
 
 //create a port
-const port = process.env.port || 7000;
+const port = process.env.port;
 
 //connecting database
 mongoose.connect(process.env.MONGO_URL)
