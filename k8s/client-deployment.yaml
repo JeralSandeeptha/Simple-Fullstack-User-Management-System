@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: client-deployment
+  labels:
+    app: client-deployment
+    env: production
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: client-pod
+      env: production
+  template:
+    metadata:
+      labels:
+        app: client-pod
+        env: production
+    spec:
+      containers:
+      - image: jeralsandeeptha/client:v1
+        name: client
+        ports:
+        - containerPort: 80

@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: server-deployment
+  labels:
+    app: server-deployment
+    env: production
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: server-pod
+      env: production
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: server-pod
+        env: production
+    spec:
+      containers:
+      - image: jeralsandeeptha/server:v1
+        name: server
+        ports:
+        - containerPort: 5000
+        env:
+          - name: MONGO_URL
+            valueFrom:
+              secretKeyRef:
+                name: server-secret
+                key: MONGO_URL
+          - name: PORT
+            valueFrom:
+              configMapKeyRef:
+                name: server-configmap
+                key: PORT

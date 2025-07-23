@@ -1,18 +1,31 @@
-# Use an official Node.js image for development
-FROM node:16-alpine
+# Use Node.js image
+FROM node:24-alpine
 
-# Set the working directory inside the container
+# Set working directory
 WORKDIR /app
 
-# Install dependencies (package.json first to leverage Docker cache)
-COPY package.json package-lock.json ./
-RUN npm install
+# Copy package.json and install dependencies
+COPY package*.json ./
+RUN npm ci --ignore-scripts
 
-# Copy the rest of your app's code into the container
+ARG REACT_APP_API_URL
+ENV REACT_APP_API_URL=$REACT_APP_API_URL
+
+# Copy the rest of the code
 COPY . .
 
-# Expose the port React development server will run on
-EXPOSE 3000
+# Build the React app
+RUN npm run build
 
-# Start the development server
-CMD ["npm", "start"]
+# Serve using nginx
+FROM nginx:alpine
+
+# Copy build output to Nginx html folder
+COPY --from=0 /app/build /usr/share/nginx/html
+
+# Use non-root user (optional but safer)
+# USER nginx
+
+# Expose port and start nginx
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]

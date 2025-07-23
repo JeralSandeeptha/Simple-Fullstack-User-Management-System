@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: server-configmap
+  labels:
+    app: server-configmap
+    env: production
+data:
+  PORT: "5000"

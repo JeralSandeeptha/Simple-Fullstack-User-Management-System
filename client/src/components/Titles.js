@@ -9,6 +9,9 @@ function Titles() {
 
   const BASE_URL = process.env.REACT_APP_API_URL;
 
+  console.log(`${BASE_URL}`);
+  console.log(`${BASE_URL}/contacts`);
+
   useEffect( () => {
       axios.get(`${BASE_URL}/contacts`)
         .then( (res) => {
